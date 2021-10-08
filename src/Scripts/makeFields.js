@@ -1,11 +1,12 @@
 const dateFunc = require("date-fns")
+const timezoneFunct = require("date-fns-tz")
 
 const makeFields = (lobbyData) => {
   let tempObj = {};
   let output = [];
 
   for (let i = 0; i < lobbyData.length; i++) {
-    var date = new Date(lobbyData[i].timestamp)
+    var date = new Date(lobbyData[i].timestamp + 28800000)
     var hours = date.getHours();
     var minutes = "0" + date.getMinutes();
     var formattedTime = hours + ':' + minutes.substr(-2);
