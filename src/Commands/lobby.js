@@ -17,6 +17,7 @@ module.exports = new Command({
       .setTitle(`Currently active lobbies.`)
       .setTimestamp(message.createdTimestamp)
       .addFields(...fields)
+      .setColor("GREEN")
     
     message.channel.send({embeds:[displayLobby]})
   }
