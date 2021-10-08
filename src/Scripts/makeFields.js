@@ -5,7 +5,8 @@ const makeFields = (lobbyData) => {
   let output = [];
 
   for (let i = 0; i < lobbyData.length; i++) {
-    var date = new Date(lobbyData[i].timestamp + 28800000)
+    let unixTime = lobbyData[i].timestamp + 28800000;
+    var date = new Date(unixTime)
     var hours = date.getHours();
     var minutes = "0" + date.getMinutes();
     var formattedTime = hours + ':' + minutes.substr(-2);
