@@ -1,5 +1,4 @@
 const dateFunc = require("date-fns")
-const timezoneFunct = require("date-fns-tz")
 
 const makeFields = (lobbyData) => {
   let tempObj = {};
