@@ -6,11 +6,7 @@ const makeFields = (lobbyData) => {
 
   for (let i = 0; i < lobbyData.length; i++) {
     let unixTime = lobbyData[i].timestamp + 28800000;
-    var date = new Date(unixTime)
-    var hours = date.getHours();
-    var minutes = "0" + date.getMinutes();
-    var formattedTime = hours + ':' + minutes.substr(-2);
-    let dateOfMessage = dateFunc.format(new Date(lobbyData[i].timestamp), 'p do MMMM')
+    let dateOfMessage = dateFunc.format(new Date(unixTime), 'p do MMMM')
 
     tempObj.name = `${i+1}: ${lobbyData[i].creator}'s ${lobbyData[i].category} lobby on ${dateOfMessage}`
     tempObj.value = lobbyData[i].link;
