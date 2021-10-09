@@ -20,10 +20,6 @@ module.exports = new Command({
     })
     fs.writeFileSync("./src/Data/lobbyData.json", JSON.stringify(lobbyData, undefined, 2));
 
-    
-    
-
-
     let fields = makeFields(lobbyData);
 
     const displayLobby = new Discord.MessageEmbed();

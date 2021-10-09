@@ -12,21 +12,35 @@ const creatingLobbyMsg = (lobbyInfo, lobbyData, message) => {
   lobbyCreated
     .setTitle(`${lobbyInfo.category} lobby created for ${lobbyInfo.timeOpening / 3600000} ${((lobbyInfo.timeOpening / 3600000 == 1) ? "hour." : "hours.")}`)
     .setDescription(lobbyInfo.link)
-    .setThumbnail(message.author.avatarURL({ dynamic: true }))
     .setAuthor(
       message.author.username, 
       message.author.avatarURL({ dynamic: true })
     )
     .setTimestamp(message.createdTimestamp)
-  if (lobbyInfo.category == "MBTL") {
-    lobbyCreated.setColor("BLUE")
-  } else if (lobbyInfo.category == "GGST") {
-    lobbyCreated.setColor("DARK_RED")
-  } else {
-    lobbyCreated.setColor("DARK_GREEN")
+
+  let file;
+  switch(lobbyInfo.category) {
+    case "MBTL":
+      file = new Discord.MessageAttachment('./src/Assets/Images/MBTL.png')
+      lobbyCreated
+        .setColor("BLUE")
+        .setThumbnail('attachment://MBTL.png')
+      message.channel.send({embeds: [lobbyCreated], files: [file]})
+      break;
+    case "GGST":
+      file = new Discord.MessageAttachment('./src/Assets/Images/GGST.png')
+      lobbyCreated
+        .setColor("DARK_RED")
+        .setThumbnail('attachment://GGST.png')
+      message.channel.send({embeds: [lobbyCreated], files: [file]})
+      break;
+    default:
+      lobbyCreated
+        .setColor("DARK_GREEN")
+        .setThumbnail(message.author.avatarURL({ dynamic: true }))
+      message.channel.send({embeds: [lobbyCreated]})
+      break;
   }
-  message.channel.send({embeds: [lobbyCreated]})
-  
 }
 
 module.exports = creatingLobbyMsg;

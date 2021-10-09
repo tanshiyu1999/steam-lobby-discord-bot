@@ -5,7 +5,7 @@ const Discord = require("discord.js");
 const lobby = require("./lobby.js");
 
 module.exports = new Command({
-  name: "remove",
+  name: "r",
   description: "Remove your lobby",
   permission: "SEND_MESSAGES",
   async run(message, args, client) {
@@ -18,8 +18,9 @@ module.exports = new Command({
         console.log(`Removed: ${removed}`)
         const removedMessage = new Discord.MessageEmbed();
         removedMessage
-        .setTitle(`Your lobby has been removed`)
+        .setTitle(`${removed[0].creator}'s ${removed[0].category} lobby has been removed.`)
         .setTimestamp(message.createdTimestamp)
+        .setColor("LIGHT_GREY")
         
         message.channel.send({embeds:[removedMessage]})
 
