@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const fs = require("fs")
 
 module.exports = new Command({
-  name: "create",
+  name: "deprecatedCreateFunction",
   description: "Save the link in the database so everyone can access it.",
   permission: "SEND_MESSAGES",
   async run(message, args, client) {
