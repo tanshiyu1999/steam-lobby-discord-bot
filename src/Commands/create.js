@@ -17,7 +17,7 @@ module.exports = new Command({
     if (!args[0].match(regex)) {
       console.log("Did not match with anything")
       return;
-    }
+    };
 
 
     
