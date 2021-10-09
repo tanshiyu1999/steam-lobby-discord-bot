@@ -1,5 +1,5 @@
 const Command = require("../Structures/Command.js");
-const makeFields = require("../Scripts/makeFields")
+const {makeFields, makeRefresherFields} = require("../Scripts/makeFields")
 const Discord = require("discord.js");
 const fs = require("fs")
 
