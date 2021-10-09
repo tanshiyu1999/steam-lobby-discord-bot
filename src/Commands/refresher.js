@@ -43,7 +43,7 @@ module.exports = new Command({
       }
       msg.edit({embeds: [edittedEmbed]})
     }
-    var refresher = setInterval(editEmbed, 1000);
+    var refresher = setInterval(editEmbed, 5000);
 
     // Will figure out how to stop refresher at a later date
   }
