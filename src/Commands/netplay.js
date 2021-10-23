@@ -6,7 +6,7 @@ const lobby = require("./lobby.js");
 const { channel } = require("diagnostics_channel");
 
 module.exports = new Command({
-  name: "play",
+  name: "netplay",
   description: "Grant netplay role.",
   permission: "SEND_MESSAGES",
   async run(message, args, client) {
@@ -49,7 +49,7 @@ module.exports = new Command({
           getRole.delete();
           role = message.guild.roles.cache.find(r => r.name == "netplay GGST");
           await message.member.roles.add(role);
-          roleCount = role.members.size;
+          roleCount = await role.members.size;
           roleGranted
             .setDescription(`**netplay GGST** role granted.\n**${roleCount - 1}** others have this role now.\n\`!stop\` to remove role.`)
             .setColor("GREEN")
@@ -60,7 +60,7 @@ module.exports = new Command({
           getRole.delete();
           role = message.guild.roles.cache.find(r => r.name == "netplay MBTL");
           await message.member.roles.add(role);
-          roleCount = role.members.size;
+          roleCount = await role.members.size;
           roleGranted
             .setDescription(`**netplay MBTL** role granted.\n**${roleCount - 1}** others have this role now.\n\`!stop\` to remove role.`)
             .setColor("GREEN")
