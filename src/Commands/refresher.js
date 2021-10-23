@@ -13,7 +13,18 @@ module.exports = new Command({
     if (message.channel.name != "active-lobbies") {
       return;
     }
+
     let lobbyData = require("../Data/lobbyData.json");
+    lobbyData = lobbyData.filter( lobby => {
+      if ((lobby.timestamp + lobby.timeOpening) < message.createdTimestamp) {
+        console.log(`${lobby.creator} is to be removed.`)
+        return false;
+      } else {
+        return true;
+      }
+    })
+    fs.writeFileSync("./src/Data/lobbyData.json", JSON.stringify(lobbyData, undefined, 2));    
+    
     let fields = makeFields(lobbyData);
     const refresherMsg = new Discord.MessageEmbed();
     refresherMsg
@@ -25,13 +36,27 @@ module.exports = new Command({
       refresherMsg.setTitle("Currently active lobbies: ")
     }
     const msg = await message.channel.send({embeds:[refresherMsg]})
-
   
     const editEmbed = () => {
+      const currentDate = new Date();
+      const timestamp = currentDate.getTime();
+      let lobbyData = require("../Data/lobbyData.json");
+      // console.log(lobbyData)
+
+      lobbyData = lobbyData.filter( lobby => {
+        if ((lobby.timestamp + lobby.timeOpening) < timestamp) {
+          // console.log(`${lobby.creator} time has passed.`)
+          return false;
+        } else {
+          return true;
+        }
+      })
+
+      fs.writeFileSync("./src/Data/lobbyData.json", JSON.stringify(lobbyData, undefined, 2));
+
+
       let edittedFields = makeRefresherFields(lobbyData);
       const edittedEmbed = new Discord.MessageEmbed();
-      
-
       edittedEmbed
         .addFields(...edittedFields)
         .setColor("GREEN")

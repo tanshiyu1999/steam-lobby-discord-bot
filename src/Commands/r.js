@@ -22,13 +22,11 @@ module.exports = new Command({
         .setTimestamp(message.createdTimestamp)
         .setColor("LIGHT_GREY")
         
-        message.channel.send({embeds:[removedMessage]})
-
+        message.channel.send({embeds:[removedMessage]});
 
         fs.writeFileSync("./src/Data/lobbyData.json", JSON.stringify(lobbyData,undefined, 2));
         return
       }
     }
-
   }
 });

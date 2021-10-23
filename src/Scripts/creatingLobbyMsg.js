@@ -9,6 +9,7 @@ const creatingLobbyMsg = (lobbyInfo, lobbyData, message) => {
   const lobbyCreated = new Discord.MessageEmbed();
 
 
+
   lobbyCreated
     .setTitle(`${lobbyInfo.category} lobby created for ${lobbyInfo.timeOpening / 3600000} ${((lobbyInfo.timeOpening / 3600000 == 1) ? "hour." : "hours.")}`)
     .setDescription(lobbyInfo.link)

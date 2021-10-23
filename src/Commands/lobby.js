@@ -9,10 +9,9 @@ module.exports = new Command({
   permission: "SEND_MESSAGES",
   async run(message, args, client) {
     let lobbyData = require("../Data/lobbyData.json");
-    console.log(message.createdTimestamp)
     lobbyData = lobbyData.filter( lobby => {
       if ((lobby.timestamp + lobby.timeOpening) < message.createdTimestamp) {
-        console.log(`${lobby.creator} time has passed.`)
+        console.log(`${lobby.creator} is to be removed.`)
         return false;
       } else {
         return true;

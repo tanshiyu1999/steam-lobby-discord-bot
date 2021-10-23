@@ -12,9 +12,18 @@ module.exports = new Event("messageCreate", async (client, message) => {
     let lobbyData = require("../Data/lobbyData.json");
     let lobbyInfo = {};
     lobbyInfo.creator = message.author.username;
-    lobbyInfo.category = message.channel.parent.name;
     lobbyInfo.timestamp = message.createdTimestamp;
     lobbyInfo.link = message.content;
+    if (message.channel.parent) {
+      if (message.channel.parent.name == "GGST" || message.channel.parent.name == "MBTL") {
+        lobbyInfo.category = message.channel.parent.name;
+      } else {
+        lobbyInfo.category = message.channel.name;
+      }
+    } else {
+      lobbyInfo.category = message.channel.name;
+    }
+ 
   
     for (let i = 0; i < lobbyData.length; i++) {
       // console.log("Lobby Data: " + lobbyData[i].creator)
@@ -100,11 +109,6 @@ module.exports = new Event("messageCreate", async (client, message) => {
       }
       chooseTimeMsg.delete();
     })
-
-
-
-
- 
   }
 
 
