@@ -8,7 +8,7 @@ const Client = require("./Structures/Client.js");
 
 const client = new Client();
 
-// keepAlive();
+keepAlive();
 require("dotenv").config()
 console.log(process.env.TEST)
 
