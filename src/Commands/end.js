@@ -5,7 +5,7 @@ const Discord = require("discord.js");
 const lobby = require("./lobby.js");
 
 module.exports = new Command({
-  name: "r",
+  name: "end",
   description: "Remove your lobby",
   permission: "SEND_MESSAGES",
   async run(message, args, client) {
