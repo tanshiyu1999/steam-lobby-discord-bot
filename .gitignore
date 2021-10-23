@@ -1,6 +1,6 @@
 # Discord Bot Data
-# src/Data/config.json
-# src/Data/lobbyData.json
+src/Data/config.json
+src/Data/lobbyData.json
 
 # Logs
 logs

@@ -7,5 +7,6 @@ const client = new Client();
 const keepAlive = require('./Hosting/server.js')
 keepAlive();
 
+const config = require("./Data/config.json");
 require("dotenv").config()
-client.start(process.env.TOKEN);
+client.start(config.token);
