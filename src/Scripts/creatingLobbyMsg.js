@@ -11,7 +11,7 @@ const creatingLobbyMsg = (lobbyInfo, lobbyData, message) => {
 
 
   lobbyCreated
-    .setTitle(`${lobbyInfo.category} lobby created for ${lobbyInfo.timeOpening / 3600000} ${((lobbyInfo.timeOpening / 3600000 == 1) ? "hour." : "hours.")}`)
+    .setTitle(`${lobbyInfo.category} lobby created for ${lobbyInfo.timeOpening / 3600000} ${((lobbyInfo.timeOpening / 3600000 == 1) ? "hour." : "hours.")} \n\`!r\` to remove your lobby`)
     .setDescription(lobbyInfo.link)
     .setAuthor(
       message.author.username, 
