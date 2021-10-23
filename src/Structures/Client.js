@@ -4,18 +4,18 @@ const Command = require("./Command.js");
 
 const Event = require("./Event.js");
 
-const config = require("../Data/config.json")
-
 const intents = new Discord.Intents(32767);
 
 const fs = require("fs");
+require("dotenv").config()
+
 
 class Client extends Discord.Client{
   constructor() {
     super({intents});
 
     this.commands = new Discord.Collection();
-    this.prefix = config.prefix;
+    this.prefix = process.env.PREFIX;
   }
 
   start(token) {

@@ -140,8 +140,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 
 
   if (!command){
-    console.log("hello")
-    console.log(command);
+    // console.log(command);
     return; //message.reply(`${args[0]} is not a valid command!`)
   }
 
