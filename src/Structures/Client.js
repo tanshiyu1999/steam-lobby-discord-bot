@@ -8,7 +8,8 @@ const intents = new Discord.Intents(32767);
 
 const fs = require("fs");
 require("dotenv").config()
-const config = require("../Data/config.json")
+
+// const config = require("../Data/config.json")
 
 
 class Client extends Discord.Client{
@@ -16,7 +17,7 @@ class Client extends Discord.Client{
     super({intents});
 
     this.commands = new Discord.Collection();
-    this.prefix = config.prefix;
+    this.prefix = "!";
   }
 
   start(token) {
